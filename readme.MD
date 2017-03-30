@@ -7,7 +7,7 @@ A growing collection of R functions and relationship files for data journalists.
 Functions so far:
 
 * `untangle` - Disentangling a complex variable [[Documentation](http://andrewbtran.github.com/muckrakr/untangle.html)]
-
+* `bulk_csv` - Creating a large data frame by appending a folder of CSV files
 
 ## Installation
 
