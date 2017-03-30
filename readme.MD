@@ -1,4 +1,4 @@
-# muckraker
+# muckrakr
 
 ----
 
@@ -6,7 +6,7 @@ A growing collection of R functions and relationship files for data journalists.
 
 Functions so far:
 
-* `untangle` - Disentangling a complex variable [[Documentation](http://andrewbtran.github.com/muckraker/untangle.html)]
+* `untangle` - Disentangling a complex variable [[Documentation](http://andrewbtran.github.com/muckrakr/untangle.html)]
 
 
 ## Installation
@@ -15,5 +15,5 @@ Functions so far:
 
 ```
 #install.packages("devtools")
-devtools:install_github("andrewbtran/muckraker")
+devtools:install_github("andrewbtran/muckrakr")
 ```
