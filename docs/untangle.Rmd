@@ -1,0 +1,76 @@
+---
+title: "Disentangling a complex variable"
+author: "Rob Kabacoff, Ph.D."
+date: "March 9, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+## Untangling a complex variable
+
+We are occassionally faced with a data set variable that contains multiple pieces of information. Consider the variable **charges** in the following dataset **test_data**.
+
+```{r dataset, warning=F, message=F}
+test_data <- data.frame(id=1:4,
+                        charges = c("Murder,Kidnapping,Burglary",
+                                    "burglary: assault and battery",
+                                    "murder",
+                                    ""))
+knitr::kable(test_data, cpation="test_data")
+```
+
+Multiple pieces of information are stored in this variable. In this case these pieces are delineated by a comma or colon. As is, the variable is not useful.
+
+The **untangle** function can be used to create a set of dummy codes from this variable that will be more useful. This results in a new dataset with dummy codes:
+
+```{r function, warning=F}
+untangle <- function(data, x, pattern, verbose=FALSE){
+  require(stringr)
+  
+  variable <- str_to_lower(data[[x]])
+  
+  # obtain list of unique codes
+  code_matrix <- str_split(variable, pattern, simplify=TRUE)
+  code_vector <- as.character(code_matrix)
+  code_vector <- str_trim(code_vector)
+  code_vector <- unique(code_vector[code_vector != ""])
+  if(verbose) cat("[Unique Codes] ", code_vector, "\n", sep="\n")
+  
+  # create dummy codes matrix
+  nobs <- nrow(data)
+  ncodes <- length(code_vector)
+  dummy_codes <- matrix(rep(NA, times=nobs*ncodes), ncol=ncodes)
+
+  # add 1/0 codes
+  for(i in 1:ncodes){
+    dummy_codes[,i] <- ifelse(str_detect(variable, code_vector[i]), 1, 0)
+  }
+  
+  # add dummy code names
+  dummy_codes <- as.data.frame(dummy_codes)
+  codenames <- str_replace_all(code_vector, " ", "_")
+  names(dummy_codes) <- codenames
+  
+  # add to data frame
+  newdata <- cbind(data, dummy_codes)
+  
+}
+
+```
+
+```{r, echo=TRUE, warning=F}
+test_data <- untangle(data=test_data, x="charges", pattern="[,:]", verbose=TRUE)
+
+```
+
+
+
+```{r results}
+knitr::kable(test_data, caption="New test_data")
+
+```
+
+
