@@ -2,5 +2,3 @@
 
 export(bulk_csv)
 export(untangle)
-import(dplyr)
-import(readr)
