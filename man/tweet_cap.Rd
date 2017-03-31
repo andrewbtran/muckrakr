@@ -2,7 +2,7 @@
 % Please edit documentation in R/tweet_cap.R
 \name{tweet_cap}
 \alias{tweet_cap}
-\title{Take a screenshot of a tweet}
+\title{Generate a screenshot of a tweet}
 \usage{
 tweet_cap(link = "", filename = "NOTHINGTWEET_CAP",
   folder = "DEFAULTTWEETCAP")

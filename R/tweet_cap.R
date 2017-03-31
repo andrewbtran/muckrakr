@@ -1,4 +1,4 @@
-#' Take a screenshot of a tweet
+#' Generate a screenshot of a tweet
 #'
 #' Quick screenshot of a tweet based on a link
 #' @param link the URL of the tweet
@@ -9,7 +9,9 @@
 #' @examples
 #' tweet_cap(link="https://twitter.com/memeprovider/status/833888807959289856", folder="images")
 
+
 tweet_cap <- function(link="", filename="NOTHINGTWEET_CAP", folder="DEFAULTTWEETCAP"){
+
   if(!require(devtools)){
     install.packages("devtools")
     library(devtools)
@@ -41,20 +43,26 @@ tweet_cap <- function(link="", filename="NOTHINGTWEET_CAP", folder="DEFAULTTWEET
   }
 
   if (length(link)>1) {
-    for (i in length(link)){
-    link_i = link[i]
-    username <- gsub("https://twitter.com/", "", link_i)
-    username <- gsub("/.*","",username, fixed=F)
-    if (filename=="NOTHINGTWEET_CAP") {
-      pre_name <- username
-    } else {
-      pre_name <- filename
-    }
-    id_num <- gsub(".*/", "", link_i)
-    image_name <- paste0(pre_name, id_num, ".png")
-    webshot(link, paste0(folder, "/", image_name), selector=c(".permalink-inner", ".permalink-tweet-container"))
+    pb <- txtProgressBar(min = 0, max = length(link), style = 3)
+
+    for (i in 1:length(link)){
+
+      link_i = link[i]
+      username <- gsub("https://twitter.com/", "", link_i)
+      username <- gsub("/.*","",username, fixed=F)
+
+      if (filename=="NOTHINGTWEET_CAP") {
+        pre_name <- username
+      } else {
+        pre_name <- filename
+      }
+      id_num <- gsub(".*/", "", link_i)
+      image_name <- paste0(pre_name, id_num, ".png")
+      webshot(link_i, paste0(folder, "/", image_name), selector=c(".permalink-inner", ".permalink-tweet-container"))
+      setTxtProgressBar(pb, i)
     }
   }
 
 
 }
+
