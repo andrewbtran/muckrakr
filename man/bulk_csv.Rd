@@ -5,7 +5,10 @@
 \title{Creating a single data frame from a folder of similarly structure CSV spreadsheets}
 \usage{
 bulk_csv(folder = "DEFAULTBULKCSV2017",
-  export = "filenamedefaultbulkcsv2017.csv")
+  export = "filenamedefaultbulkcsv2017.csv", col_names = TRUE,
+  col_types = NULL, locale = default_locale(), na = c("", "NA"),
+  quoted_na = TRUE, comment = "", trim_ws = TRUE, skip = 0,
+  n_max = Inf, guess_max = min(1000, n_max), progress = interactive())
 }
 \arguments{
 \item{folder}{The folder in relation to your working directory where the csv files exist. Default folder is the current working directory.}
@@ -13,7 +16,7 @@ bulk_csv(folder = "DEFAULTBULKCSV2017",
 \item{export}{File name to export csv file as, if wanted.}
 }
 \description{
-Like Voltron-ing your data
+Like Voltron-ing your data. This package is based on readr, so passing on variables from read_csv will work in bulk_csv. These variables will apply to the import of each CSV sheet.
 }
 \examples{
 bulk_csv(folder="data", export="combined_data.csv")

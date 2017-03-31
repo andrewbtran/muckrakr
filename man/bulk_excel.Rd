@@ -5,7 +5,8 @@
 \title{Creating a single data frame from a folder of similarly structured Excel spreadsheets}
 \usage{
 bulk_excel(folder = "DEFAULTBULKCSV2017",
-  export = "filenamedefaultbulkcsv2017.csv")
+  export = "filenamedefaultbulkcsv2017.csv", sheet = 1, col_names = TRUE,
+  col_types = NULL, na = "", skip = 0)
 }
 \arguments{
 \item{folder}{The folder in relation to your working directory where the Excel files exist. Default folder is the current working directory.}
@@ -13,10 +14,10 @@ bulk_excel(folder = "DEFAULTBULKCSV2017",
 \item{export}{File name to export csv file as, if wanted.}
 }
 \description{
-Like Voltron-ing your Excel data
+Like Voltron-ing your Excel data. This package is based on readxl, so passing on variables from read_excel will work in bulk_excel. These variables will apply to the import of each Excel spreadsheet.
 }
 \examples{
-bulk_csv(folder="data", export="combined_data.csv")
+bulk_excel(folder="data", export="combined_data.xls")
 }
 \keyword{appending}
 \keyword{data}
