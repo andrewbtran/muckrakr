@@ -9,7 +9,7 @@ Generate a screenshot of a tweet
 
 ## Description
 
-Quick screenshot of a tweet based on a link or array of links.
+Quick screenshot of a tweet based on a link or array of links. The image will represent how the tweet looks on a browser.
   
 ## Usage
 
