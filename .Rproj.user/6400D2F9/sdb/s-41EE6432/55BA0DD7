@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"tweet_cap()\"\nauthor: \"Andrew\"\ndate: \"3/31/2017\"\noutput: html_document\n---\n\nGenerate a screenshot of a tweet\n\n## Description\n\nQuick screenshot of a tweet based on a link or array of links. The image will represent how the tweet looks on a browser.\n  \n## Usage\n\ntweet_cap(link = \"\", filename = \"NOTHINGTWEET_CAP\", folder = \"DEFAULTTWEETCAP\")\n\n## Arguments\n\n\n* `link` - the URL of the tweet\n* `filename` -the base name of the image you want to save. Default will be user's twitter handle.\n* `folder` - the folder you want to save the screenshot to. If ignored, the folder will be the working directory.\n\n### Documentation\n\n#### Single tweet\n\nTo grat one tweet, just put in the URL address.\n\n`tweet_cap(link=\"https://twitter.com/memeprovider/status/833888807959289856\", folder=\"images\")`\n\nThis image will be generated to the **images** folder.\n\n<div style=\"max-width:500px\">\n<center>![Single image](images/memeprovider833888807959289856.png)</center></div>\n\n----\n\n#### Multiple tweets\n\nIf you had a data frame of links:\n\n```{r tweets_list, warning=F, message=F}\nlibrary(tidyverse)\nlibrary(knitr)\n```\n\n```{r loading_data}\ntweets <- tribble(\n                                                            ~Link,          ~Account,\n  \"https://twitter.com/realDonaldTrump/status/847766558520856578\", \"realDonaldTrump\",\n  \"https://twitter.com/realDonaldTrump/status/847056211006631936\", \"realDonaldTrump\",\n  \"https://twitter.com/realDonaldTrump/status/846854703183020032\", \"realDonaldTrump\",\n       \"https://twitter.com/byrdinator/status/847600835148128258\",      \"byrdinator\",\n          \"https://twitter.com/Gizmodo/status/847532891127074823\",         \"Gizmodo\"\n  )\n\nkable(tweets)\n```\n\nTo generate a folder of images of the list of tweets, use:\n\n```{r, eval=F}\ntweet_cap(tweets$Link, folder=\"images\")\n```\n\nAnd you'll get: \n\n<div style=\"max-width:500px\">\n<center>![Folder of images](images/tweet_images.png)</center></div>\n",
+    "created" : 1490970783971.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "293115364",
+    "id" : "55BA0DD7",
+    "lastKnownWriteTime" : 1490970948,
+    "last_content_update" : 1490970948452,
+    "path" : "~/Documents/Github/muckrakr/docs/tweet_cap.Rmd",
+    "project_path" : "docs/tweet_cap.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
