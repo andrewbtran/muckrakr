@@ -17,5 +17,5 @@ Functions so far:
 
 ```
 #install.packages("devtools")
-devtools:install_github("andrewbtran/muckrakr")
+devtools::install_github("andrewbtran/muckrakr")
 ```
