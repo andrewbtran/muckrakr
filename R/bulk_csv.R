@@ -29,7 +29,7 @@
 # this is the readr version but it loops and has a progress bar
 
 bulk_csv <- function(folder="DEFAULTBULKCSV2017", export="filenamedefaultbulkcsv2017.csv", col_names = TRUE, col_types = NULL,
-                     locale = default_locale(), na = c("", "NA"), quoted_na = TRUE,
+                     na = c("", "NA"), quoted_na = TRUE,
                      comment = "", trim_ws = TRUE, skip = 0, n_max = Inf,
                      guess_max = min(1000, n_max), progress = interactive()){
   require(readr)
@@ -37,7 +37,6 @@ bulk_csv <- function(folder="DEFAULTBULKCSV2017", export="filenamedefaultbulkcsv
 
   col_names_f <- col_names
   col_types_f <- col_types
-  locale_f <- locale
   na_f <- na
   quoted_na_f <- quoted_na
   comment_f <- comment
@@ -59,7 +58,7 @@ bulk_csv <- function(folder="DEFAULTBULKCSV2017", export="filenamedefaultbulkcsv
 
   for (i in 1:length(files)) {
     file_x <- read_csv(paste0(folder, "/", files[i]), , col_names = col_names_f, col_types = col_types_f,
-                       locale = local_f, na = na_f, quoted_na = quoted_na_f,
+                       na = na_f, quoted_na = quoted_na_f,
                        comment = comment_f, trim_ws = trim_ws_f, skip = skip_f, n_max = n_max_f,
                        guess_max = guess_max_f, progress = progress_f)
     if (i ==1) {
