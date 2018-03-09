@@ -21,4 +21,3 @@ bulk_excel(folder="data", export="combined_data.xls")
 }
 \keyword{appending}
 \keyword{data}
-

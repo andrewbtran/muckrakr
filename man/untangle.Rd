@@ -24,4 +24,3 @@ untangle(data=test_data, x="charges", pattern="[,:]", verbose=TRUE)
 }
 \keyword{data}
 \keyword{wrangling}
-

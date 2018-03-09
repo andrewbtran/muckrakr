@@ -2,5 +2,6 @@
 
 export(bulk_csv)
 export(bulk_excel)
+export(setup_folders)
 export(tweet_cap)
 export(untangle)

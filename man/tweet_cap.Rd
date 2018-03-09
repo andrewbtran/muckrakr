@@ -22,4 +22,3 @@ tweet_cap(link="https://twitter.com/memeprovider/status/833888807959289856", fol
 }
 \keyword{screenshot}
 \keyword{twitter}
-
